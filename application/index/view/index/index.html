@@ -1,0 +1,14 @@
+{{ extends ('base.html') }}
+
+{{ block title }}HM框架{{ endblock }}
+
+{{ block body}}
+    <p>Hello，{{ $hername}}。</p>
+    {{ literal }}
+    {{ $showhtml }}
+    {{ endliteral }}
+    <div>
+        <a href="/demo.php">直接访问页面案例，如过你想要直接访问的页面，public目录下的index.php可以删除或修改。</a>
+    </div>
+    {{php echo json_encode($Request); php}}
+{{ endblock}}

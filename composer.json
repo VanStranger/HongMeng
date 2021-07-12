@@ -1,0 +1,15 @@
+{
+    "name": "vanstranger/hongmeng",
+    "description": "a mvc php frame;",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "VanStranger",
+            "email": "fanjunjiei@126.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    }
+}
