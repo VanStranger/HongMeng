@@ -15,20 +15,20 @@ return function ()
   </div>
   <?php
   $body = [
-        "div" => [
             [
-                "class" => "comp",
-            ],
-            [
-                "a" => [
+              "tag"=>"div",
+              "class" => "comp",
+              "children"=>[
                     [
-                        "href" => '###',
-                        "onclick"=>"console.log('1');"
+                      "tag"=>"a",
+                      "href" => '###',
+                      "onclick"=>"console.log('1');",
+                      "children"=>[
+                        '弘梦demo'
+                      ],
                     ],
-                    ['liuyifei'],
-                ],
+              ]
             ],
-        ],
     ];
     $a=["aaa"];
     echo Hongmeng::render($body,$name);

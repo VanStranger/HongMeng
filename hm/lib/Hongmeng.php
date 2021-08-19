@@ -54,16 +54,19 @@ class Hongmeng {
     foreach ($json as $name => $prop) {
       if(is_numeric($name) && is_string($prop)){
         $html.=$prop;
-      }elseif(is_string($name) && is_array($prop) && $prop){
-        $html.="<".$name." ";
-        foreach ($prop[0] as $key => $value) {
-          $html.=$key.'="'.$value.'" ';
+      }elseif(is_numeric($name) && is_array($prop) && $prop['tag']){
+        $html.="<".$prop['tag']." ";
+        foreach ($prop as $key => $value) {
+          $key=strtolower($key);
+          if($key!=="tag" && $Key!=="children"){
+            $html.=$key.'="'.$value.'" ';
+          }
         }
         $html.=" hongmeng-$str >\r\n";
-        if(count($prop)>1){
-            self::render($prop[1],$str,true);
+        if($prop['children']){
+            self::render($prop['children'],$str,true);
         }
-        $html.='</'.$name.">\r\n";
+        $html.='</'.$prop['tag'].">\r\n";
       }
     }
     return $html;
