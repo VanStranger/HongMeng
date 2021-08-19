@@ -31,12 +31,10 @@ class Hongmeng {
     foreach ($matches[1] as $key => $value) {
       if(strstr($value,",")!==false){
         $strarr=explode(",",$value);
-        var_dump($strarr);
         foreach ($strarr as $k => $s) {
           $strarr[$k]=str_replace($s,(rtrim($s)."[hongmeng-$str]"),$s);
         }
         $tostr=implode(",",$strarr);
-        var_dump($tostr);
         $cont=str_replace($value."{",$tostr."{",$cont);
       }else{
         $cont=str_replace($value."{",rtrim($value)."[hongmeng-$str]{",$cont);
