@@ -1,14 +1,5 @@
 <?php
   use \hm\lib\Hongmeng;
-  if (!function_exists('blockhtml')) {
-    function blockhtml($fun,$newfun) {
-        if(function_exists($fun)){
-            $fun();
-        }else{
-            $newfun();
-        }
-    }
-  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
