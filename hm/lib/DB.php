@@ -587,6 +587,10 @@ class DB
     {
         if (is_string($group)) {
             $this->groupSql = $this->groupSql ? $this->groupSql . "," . $group : " group by " . $group;
+        } elseif (is_array($group)) {
+            foreach ($group as $key => $value) {
+                $this->groupSql = $this->groupSql ? $this->groupSql . "," . $value : " group by " . $value;
+            }
         } elseif (is_callable($group, true)) {
             call_user_func($group, $this);
         }
@@ -683,6 +687,10 @@ class DB
     {
         if (is_string($order)) {
             $this->orderSql = $this->orderSql ? "," . $order : " order by " . $order;
+        } elseif (is_array($order)) {
+            foreach ($order as $key => $value) {
+                $this->orderSql = $this->orderSql ? "," . $value : " order by " . $value;
+            }
         } elseif (is_callable($order, true)) {
             call_user_func($order, $this);
         }
